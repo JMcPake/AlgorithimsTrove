@@ -1,3 +1,19 @@
+def construct_margeTop(topSize):
+
+    margeTop = generate_sequence(topSize)  # Generate the squence
+    print(margeTop)
+
+def generate_sequence(max_length):
+    sequence = []
+    length = 3
+    indent = max_length - length  # start with maximum indentation
+    while length <= max_length:
+        section = " " * indent + "(" + "#" * length + ")"
+        sequence.append(section)
+        length += 2
+        indent -= 2  # reduce the indentation by 2 for the next section
+    return "\n".join(sequence)
+
 def merge_sort(arr, depth=0):
     if len(arr) > 1:
         mid = len(arr) // 2
@@ -61,10 +77,17 @@ def main():
     for i in range(9):
         Z.append(random.randint(0, 99))
 
+    zSize = len(str(Z))
+
     print("Before: " + str(Z))
 
+    construct_margeTop(zSize)   # Construct marge from the top
+    print("(" +Z)
 
-    print("Marge Sort!!!\n" + artTop)
+    # Do merge sort
+
+
+    # Construct marge from bottom
 
     merge_sort(Z)
 
